@@ -1,0 +1,2 @@
+export const LOAD_DATA = 'LOAD_DATA';
+export const LOAD_SPECIFIC_DATE_DATA = 'LOAD_SPECIFIC_DATE_DATA';
