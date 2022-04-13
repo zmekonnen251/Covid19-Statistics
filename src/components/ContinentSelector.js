@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { loadData } from '../redux/reducer';
-import MatrixCard from './MatrixCard';
+import ContinentMatrixCard from './ContinentMatrixCard';
 import DateInputForm from './DateInputForm';
-// import MatrixCard from './MatrixCard';
 
-const Home = () => {
+const ContinentSelector = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.covidData);
 
@@ -28,11 +27,12 @@ const Home = () => {
         });
 
         return (
-          <MatrixCard
+          <ContinentMatrixCard
             key={uuidv4()}
             name={continentName}
             totalConfirmed={totalConfirmed}
             totalDeath={totalDeath}
+            onClickSetContinent={continent}
           />
         );
       })}
@@ -40,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ContinentSelector;

@@ -1,10 +1,28 @@
 import axios from 'axios';
 import getContinent from './continent';
-import LOAD_DATA from './actionTypes';
+import { LOAD_DATA, SET_CONTINENT, SET_COUNTRY } from './actionTypes';
 
 export const covid19Reducer = (state = {}, action = {}) => {
   switch (action.type) {
     case LOAD_DATA:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export const continentReducer = (state = {}, action = {}) => {
+  switch (action.type) {
+    case SET_CONTINENT:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export const countryReducer = (state = {}, action = {}) => {
+  switch (action.type) {
+    case SET_COUNTRY:
       return action.payload;
     default:
       return state;
@@ -126,3 +144,13 @@ export const loadData = (selectedDate = '') => {
     dispatch({ type: LOAD_DATA, payload: continent });
   };
 };
+
+export const setContinent = (continent = '') => ({
+  type: SET_CONTINENT,
+  payload: { continent },
+});
+
+export const setCountry = (country = '') => ({
+  type: SET_COUNTRY,
+  payload: { country },
+});
